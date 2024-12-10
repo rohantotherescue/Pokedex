@@ -1,0 +1,27 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="page">
+    <ActionBar title="Pokédex" class="action-bar" />
+    
+    <GridLayout rows="auto, *">
+        <!-- Search Bar -->
+        <SearchBar row="0" hint="Search Pokémon..." text="{{ searchQuery }}" 
+                  submit="{{ onSearch }}" clear="{{ onClear }}"
+                  class="search-bar" />
+        
+        <!-- Loading Indicator -->
+        <ActivityIndicator row="1" busy="{{ isLoading }}" />
+        
+        <!-- Pokemon Grid -->
+        <GridLayout row="1" class="pokemon-grid" visibility="{{ isLoading ? 'collapse' : 'visible' }}">
+            <GridView items="{{ pokemons }}" colWidth="50%" rowHeight="180" 
+                      itemTap="{{ onPokemonTap }}" class="pokemon-list">
+                <GridView.itemTemplate>
+                    <GridLayout rows="auto, *, auto" columns="*" class="pokemon-card">
+                        <Label row="0" text="{{ name }}" class="pokemon-name" />
+                        <Image row="1" src="{{ images[0] }}" class="pokemon-image" loadMode="async" />
+                        <Label row="2" text="{{ types[0] }}" class="pokemon-type" horizontalAlignment="right" />
+                    </GridLayout>
+                </GridView.itemTemplate>
+            </GridView>
+        </GridLayout>
+    </GridLayout>
+</Page>

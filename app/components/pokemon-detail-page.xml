@@ -1,0 +1,65 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="page">
+    <ActionBar title="{{ pokemon.name }}" class="action-bar">
+        <NavigationButton text="Back" android.systemIcon="ic_menu_back" />
+    </ActionBar>
+
+    <ScrollView>
+        <StackLayout class="p-4">
+            <!-- Image Carousel -->
+            <GridLayout rows="auto" height="250">
+                <Carousel items="{{ pokemon.images }}" indicatorColor="#FF0000" 
+                         indicatorColorUnselected="#f4f4f4" height="250">
+                    <Carousel.itemTemplate>
+                        <Image src="{{ $value }}" stretch="aspectFit" />
+                    </Carousel.itemTemplate>
+                </Carousel>
+            </GridLayout>
+
+            <!-- Pokemon Details -->
+            <StackLayout class="mt-4">
+                <!-- Types -->
+                <Label text="Types" class="text-lg font-bold mb-2" />
+                <WrapLayout>
+                    <Repeater items="{{ pokemon.types }}">
+                        <Repeater.itemTemplate>
+                            <Label text="{{ $value }}" class="m-1 p-2 bg-red-100 rounded-full" />
+                        </Repeater.itemTemplate>
+                    </Repeater>
+                </WrapLayout>
+
+                <!-- Stats -->
+                <Label text="Stats" class="text-lg font-bold mt-4 mb-2" />
+                <Repeater items="{{ pokemon.stats }}">
+                    <Repeater.itemTemplate>
+                        <GridLayout rows="auto" columns="*, auto" class="mb-2">
+                            <Label col="0" text="{{ name }}" class="capitalize" />
+                            <Label col="1" text="{{ value }}" class="font-bold" />
+                        </GridLayout>
+                    </Repeater.itemTemplate>
+                </Repeater>
+
+                <!-- Moves -->
+                <Label text="Moves" class="text-lg font-bold mt-4 mb-2" />
+                <WrapLayout>
+                    <Repeater items="{{ pokemon.moves }}">
+                        <Repeater.itemTemplate>
+                            <Label text="{{ $value }}" class="m-1 p-2 bg-gray-100 rounded-lg" />
+                        </Repeater.itemTemplate>
+                    </Repeater>
+                </WrapLayout>
+
+                <!-- Physical Characteristics -->
+                <GridLayout rows="auto" columns="*, *" class="mt-4">
+                    <StackLayout col="0" class="text-center">
+                        <Label text="Height" class="font-bold" />
+                        <Label text="{{ pokemon.height }}m" />
+                    </StackLayout>
+                    <StackLayout col="1" class="text-center">
+                        <Label text="Weight" class="font-bold" />
+                        <Label text="{{ pokemon.weight }}kg" />
+                    </StackLayout>
+                </GridLayout>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</Page>

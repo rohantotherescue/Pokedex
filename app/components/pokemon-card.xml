@@ -1,0 +1,7 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd">
+  <GridLayout rows="auto, *, auto" columns="*" class="bg-white rounded-lg shadow-md m-2 p-2">
+    <Label row="0" col="0" text="{{ name }}" class="text-lg font-bold text-left ml-2" />
+    <Image row="1" col="0" src="{{ images[0] }}" class="w-32 h-32" />
+    <Label row="2" col="0" text="{{ types[0] }}" class="text-right text-sm text-gray-600 mr-2" />
+  </GridLayout>
+</Page>

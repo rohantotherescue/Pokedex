@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.page {
+  background-color: white;
+}
+
+.action-bar {
+  background-color: #FF0000;
+  color: white;
+}
+
+.search-bar {
+  background-color: white;
+  border-radius: 20;
+  margin: 10;
+}
+
+.pokemon-grid {
+  padding: 10;
+}
+
+.pokemon-card {
+  background-color: white;
+  border-radius: 10;
+  elevation: 3;
+  margin: 5;
+  padding: 10;
+}
+
+.pokemon-image {
+  height: 120;
+  width: 120;
+}
+
+.pokemon-name {
+  color: #333;
+  font-size: 16;
+  font-weight: bold;
+}
+
+.pokemon-type {
+  color: #666;
+  font-size: 14;
+}
